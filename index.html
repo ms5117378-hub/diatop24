@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diatop24 - Swiss Quality Diamond Tools</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #1A1A1A;
+            --bg-lighter: #2A2A2A;
+            --bg-darker: #0F0F0F;
+            --text-main: #E0E0E0;
+            --text-muted: #B0B0B0;
+            --accent-red: #D32F2F;
+            --accent-red-hover: #B71C1C;
+            --accent-red-light: rgba(211, 47, 47, 0.1);
+            --white: #FFFFFF;
+            --card-bg: #FFFFFF;
+            --border-color: #333333;
+            --swiss-red: #FF0000;
+            --gradient-overlay: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(0, 0, 0, 0.8) 100%);
+            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 15px 40px rgba(211, 47, 47, 0.2);
+            --transition-standard: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: url('https://sfile.chatglm.cn/images-ppt/b9e11fdefb82.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(26, 26, 26, 0.9) 0%, rgba(15, 15, 15, 0.95) 100%);
+            z-index: -1;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: var(--transition-standard);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            transform: translateX(100%);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-red);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-red-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(211, 47, 47, 0.4);
+        }
+
+        h2.section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 700;
+            color: var(--white);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        h2.section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-red);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        .swiss-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+        
+        .swiss-badge img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+        
+        .swiss-badge span {
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 1rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--white);
+            letter-spacing: -1px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 5px;
+            color: var(--accent-red);
+        }
+        
+        .logo span {
+            color: var(--accent-red);
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 2rem;
+            position: relative;
+            max-width: 500px;
+            display: none; /* Hidden on very small screens */
+        }
+
+        @media(min-width: 768px) {
+            .search-bar {
+                display: block;
+            }
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            font-size: 1rem;
+            transition: var(--transition-standard);
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--accent-red);
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(211, 47, 47, 0.2);
+        }
+
+        .search-bar i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .header-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 30px;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition-standard);
+        }
+        
+        .header-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .header-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('https://sfile.chatglm.cn/images-ppt/75a22c64c4da.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-overlay);
+            z-index: 1;
+        }
+        
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='1' fill='rgba(255,255,255,0.1)'/%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background-color: rgba(211, 47, 47, 0.2);
+            color: var(--accent-red);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(211, 47, 47, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero h1 span {
+            color: var(--accent-red);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background-color: rgba(211, 47, 47, 0.3);
+            z-index: -1;
+            transform: skewX(-15deg);
+        }
+
+        .hero p {
+            font-size: 1.35rem;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            color: var(--text-main);
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-red);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+
+        /* Brand Grid */
+        .brands-section {
+            padding: var(--section-padding);
+            background-color: var(--bg-color);
+            position: relative;
+        }
+        
+        .brands-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        }
+
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .brand-tile {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-standard);
+            cursor: pointer;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .brand-tile::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(211, 47, 47, 0.05);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            z-index: 0;
+        }
+        
+        .brand-tile:hover::before {
+            transform: translateY(0);
+        }
+
+        .brand-tile i {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+            transition: var(--transition-standard);
+        }
+        
+        .brand-tile:hover i {
+            color: var(--accent-red);
+            transform: scale(1.1);
+        }
+
+        .brand-tile span {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #333;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand-tile:hover {
+            border-color: var(--accent-red);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+        }
+
+        /* Color System Section */
+        .color-system-section {
+            padding: var(--section-padding);
+            background-color: var(--bg-lighter);
+            position: relative;
+        }
+        
+        .color-system-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .color-card {
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            height: 320px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition-standard);
+            cursor: pointer;
+        }
+        
+        .color-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: 1;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+        
+        .color-card:hover::before {
+            opacity: 0.8;
+        }
+
+        .bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+        
+        .color-card:hover .bg-img {
+            transform: scale(1.1);
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .color-card-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .color-card:hover .color-card-content {
+            transform: translateY(-10px);
+        }
+
+        .color-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .color-card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 300;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+        }
+        
+        .color-card-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.8rem;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        
+        .color-card:hover .color-card-link {
+            border-bottom-color: var(--white);
+        }
+
+        /* Specific Colors */
+        .card-black .overlay { background-color: rgba(0, 0, 0, 0.7); }
+        .card-blue .overlay { background-color: rgba(33, 150, 243, 0.7); }
+        .card-red .overlay { background-color: rgba(211, 47, 47, 0.7); }
+        .card-green .overlay { background-color: rgba(76, 175, 80, 0.7); }
+        .card-brown .overlay { background-color: rgba(121, 85, 72, 0.7); }
+
+        /* Bestsellers Section */
+        .bestsellers-section {
+            padding: var(--section-padding);
+            background-color: var(--bg-color);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: var(--bg-lighter);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition-standard);
+            position: relative;
+        }
+        
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-red), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--text-muted);
+        }
+        
+        .product-badges {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .badge {
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-sale {
+            background-color: var(--accent-red);
+            color: var(--white);
+        }
+        
+        .badge-new {
+            background-color: #4CAF50;
+            color: var(--white);
+        }
+
+        .product-image {
+            background-color: var(--white);
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-actions {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px;
+            background: linear-gradient(to top, rgba(255, 255, 255, 0.9), transparent);
+            transition: bottom 0.3s ease;
+            z-index: 1;
+        }
+        
+        .product-card:hover .product-actions {
+            bottom: 0;
+        }
+        
+        .action-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--white);
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            background-color: var(--accent-red);
+            color: var(--white);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .product-title {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+            transition: color 0.3s ease;
+        }
+        
+        .product-card:hover .product-title {
+            color: var(--accent-red);
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        .color-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .stock-badge {
+            background-color: #2E7D32;
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .price {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-top: 0.8rem;
+            display: block;
+        }
+        
+        .old-price {
+            font-size: 0.9rem;
+            text-decoration: line-through;
+            color: var(--text-muted);
+            margin-right: 8px;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: var(--section-padding);
+            background-color: var(--bg-lighter);
+            position: relative;
+        }
+        
+        .testimonials-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--bg-color);
+            border-radius: 8px;
+            padding: 2rem;
+            position: relative;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition-standard);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .testimonial-quote {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 4rem;
+            color: rgba(211, 47, 47, 0.1);
+            line-height: 1;
+            font-family: serif;
+        }
+
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--accent-red);
+        }
+        
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .testimonial-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Trust Section */
+        .trust-section {
+            padding: var(--section-padding);
+            background-color: var(--bg-color);
+            text-align: center;
+            position: relative;
+        }
+        
+        .trust-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        }
+
+        .trust-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .trust-column {
+            flex: 1;
+            min-width: 250px;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition-standard);
+        }
+        
+        .trust-column:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: rgba(211, 47, 47, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .trust-icon {
+            font-size: 3.5rem;
+            color: var(--accent-red);
+            margin-bottom: 1rem;
+        }
+
+        .trust-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .trust-column p {
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background-color: var(--bg-lighter);
+            background-image: url('https://sfile.chatglm.cn/images-ppt/a214098d9810.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 15, 15, 0.85);
+            z-index: 1;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+        
+        .cta-content p {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-darker);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            position: relative;
+        }
+        
+        .footer-top {
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-column h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1rem;
+            border-bottom: 2px solid var(--accent-red);
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .footer-links li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-red);
+            font-weight: bold;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--accent-red);
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: var(--accent-red);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            transition: border-color 0.3s ease;
+        }
+        
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: var(--accent-red);
+        }
+        
+        .newsletter-form button {
+            background-color: var(--accent-red);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            padding: 0 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: var(--accent-red-hover);
+        }
+        
+        .newsletter-text {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .payment-icons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+        
+        .payment-icon {
+            width: 50px;
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+        
+        .payment-icon:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+        }
+        
+        .swiss-flag {
+            width: 40px;
+            height: 40px;
+            background-color: var(--swiss-red);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 16px;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .swiss-flag::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background-color: var(--white);
+            border-radius: 2px;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #666;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.85rem;
+        }
+        
+        .copyright p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .copyright-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 1rem;
+        }
+        
+        .copyright-links a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .copyright-links a:hover {
+            color: var(--accent-red);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.5rem; }
+            .product-grid { grid-template-columns: 1fr; }
+            .brand-grid { grid-template-columns: repeat(2, 1fr); }
+            .color-grid { grid-template-columns: 1fr; }
+            .header-content { flex-direction: column; gap: 1rem; }
+            .search-bar { display: none; }
+            .hero-stats { flex-direction: column; gap: 1.5rem; }
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+        
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <i class="material-icons">diamond</i>
+                DIATOP<span>24</span>
+            </a>
+            
+            <div class="search-bar">
+                <i class="material-icons">search</i>
+                <input type="text" placeholder="Search for diamond tools...">
+            </div>
+
+            <div class="header-actions">
+                <a href="#" class="header-btn">
+                    <i class="material-icons">shopping_cart</i>
+                    <span>0</span>
+                </a>
+                <button class="btn btn-primary">Product Finder</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-particles"></div>
+            <div class="hero-content animate-fade-in-up">
+                <div class="hero-badge">Swiss Engineered Quality</div>
+                <h1>Swiss Quality Diamond Tools. <span>Delivered in 24 Hours.</span></h1>
+                <p>Compatible with all major machine brands. Find your perfect match in under 20 seconds with our intelligent product finder.</p>
+                <a href="#" class="btn btn-primary">Start Product Finder Now</a>
+                
+                <div class="hero-stats animate-fade-in-up delay-200">
+                    <div class="stat-item">
+                        <span class="stat-number">24h</span>
+                        <span class="stat-label">Fast Delivery</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Products</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Brands</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Machine Brand Grid -->
+        <section class="brands-section">
+            <div class="container">
+                <h2 class="section-title">Shop by Machine Brand</h2>
+                <div class="brand-grid">
+                    <!-- Using material icons to represent brands for this design mockup -->
+                    <div class="brand-tile">
+                        <i class="material-icons">precision_manufacturing</i>
+                        <span>Hilti</span>
+                    </div>
+                    <div class="brand-tile">
+                        <i class="material-icons">construction</i>
+                        <span>Husqvarna</span>
+                    </div>
+                    <div class="brand-tile">
+                        <i class="material-icons">handyman</i>
+                        <span>Festool</span>
+                    </div>
+                    <div class="brand-tile">
+                        <i class="material-icons">hardware</i>
+                        <span>Makita</span>
+                    </div>
+                    <div class="brand-tile">
+                        <i class="material-icons">build_circle</i>
+                        <span>Bosch</span>
+                    </div>
+                    <div class="brand-tile">
+                        <i class="material-icons">carpenter</i>
+                        <span>Mafell</span>
+                    </div>
+                    <div class="brand-tile">
+                        <i class="material-icons">grid_on</i>
+                        <span>Scheppach</span>
+                    </div>
+                    <div class="brand-tile">
+                        <i class="material-icons">settings</i>
+                        <span>Flex</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Color System -->
+        <section class="color-system-section">
+            <div class="container">
+                <h2 class="section-title">The Diatop24 Color System: Find the Right Tool Instantly</h2>
+                <div class="color-grid">
+                    <!-- Black: Soft Floors -->
+                    <div class="color-card card-black">
+                        <div class="bg-img" style="background-image: url('https://sfile.chatglm.cn/images-ppt/c3cd3369bb01.jpg');"></div>
+                        <div class="overlay"></div>
+                        <div class="color-card-content">
+                            <i class="material-icons" style="font-size: 36px; margin-bottom: 10px;">layers</i>
+                            <h3>Soft Floors</h3>
+                            <p>Anhydrite & Soft Concrete</p>
+                            <a href="#" class="color-card-link">View Products →</a>
+                        </div>
+                    </div>
+
+                    <!-- Blue: Medium Hard -->
+                    <div class="color-card card-blue">
+                        <div class="bg-img" style="background-image: url('https://sfile.chatglm.cn/images-ppt/dcc1e4b808ad.jpg');"></div>
+                        <div class="overlay"></div>
+                        <div class="color-card-content">
+                            <i class="material-icons" style="font-size: 36px; margin-bottom: 10px;">texture</i>
+                            <h3>Medium-Hard</h3>
+                            <p>Standard Stone & Terrazzo</p>
+                            <a href="#" class="color-card-link">View Products →</a>
+                        </div>
+                    </div>
+
+                    <!-- Red: Hard Floors -->
+                    <div class="color-card card-red">
+                        <div class="bg-img" style="background-image: url('https://sfile.chatglm.cn/images-ppt/b9e11fdefb82.jpg');"></div>
+                        <div class="overlay"></div>
+                        <div class="color-card-content">
+                            <i class="material-icons" style="font-size: 36px; margin-bottom: 10px;">foundation</i>
+                            <h3>Hard Floors</h3>
+                            <p>Reinforced Concrete</p>
+                            <a href="#" class="color-card-link">View Products →</a>
+                        </div>
+                    </div>
+
+                    <!-- Green: Removal -->
+                    <div class="color-card card-green">
+                        <div class="bg-img" style="background-image: url('https://sfile.chatglm.cn/images-ppt/d2f78d4ac1e5.jpg');"></div>
+                        <div class="overlay"></div>
+                        <div class="color-card-content">
+                            <i class="material-icons" style="font-size: 36px; margin-bottom: 10px;">cleaning_services</i>
+                            <h3>Removal & PCD</h3>
+                            <p>Adhesives & Bitumen</p>
+                            <a href="#" class="color-card-link">View Products →</a>
+                        </div>
+                    </div>
+
+                    <!-- Brown: Wood -->
+                    <div class="color-card card-brown">
+                        <div class="bg-img" style="background-image: url('https://sfile.chatglm.cn/images-ppt/bd9b55a226b8.jpg');"></div>
+                        <div class="overlay"></div>
+                        <div class="color-card-content">
+                            <i class="material-icons" style="font-size: 36px; margin-bottom: 10px;">park</i>
+                            <h3>Wood</h3>
+                            <p>Wood Processing</p>
+                            <a href="#" class="color-card-link">View Products →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bestsellers -->
+        <section class="bestsellers-section">
+            <div class="container">
+                <h2 class="section-title">Our Top Sellers</h2>
+                <div class="product-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="product-badges">
+                            <span class="badge badge-sale">-15%</span>
+                        </div>
+                        <div class="product-image">
+                            <img src="https://sfile.chatglm.cn/images-ppt/cc4ebe1712f8.jpg" alt="Grinding Segment Red">
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="material-icons">shopping_cart</i></button>
+                            <button class="action-btn"><i class="material-icons">favorite_border</i></button>
+                            <button class="action-btn"><i class="material-icons">visibility</i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Pro Grinding Segment M-30</h3>
+                            <span class="color-dot" style="background-color: #D32F2F;"></span> <span style="font-size: 0.8rem; color:#aaa;">Concrete</span>
+                            <div class="product-meta">
+                                <span class="stock-badge">In Stock</span>
+                            </div>
+                            <span class="price"><span class="old-price">CHF 52.90</span>CHF 45.00</span>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <div class="product-badges">
+                            <span class="badge badge-new">New</span>
+                        </div>
+                        <div class="product-image">
+                            <img src="https://sfile.chatglm.cn/images-ppt/018fd9f9121f.jpg" alt="Polishing Pad Green">
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="material-icons">shopping_cart</i></button>
+                            <button class="action-btn"><i class="material-icons">favorite_border</i></button>
+                            <button class="action-btn"><i class="material-icons">visibility</i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Resin Polishing Pad G-50</h3>
+                            <span class="color-dot" style="background-color: #2196F3;"></span> <span style="font-size: 0.8rem; color:#aaa;">Stone</span>
+                            <div class="product-meta">
+                                <span class="stock-badge">In Stock</span>
+                            </div>
+                            <span class="price">CHF 22.50</span>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://sfile.chatglm.cn/images-ppt/75a22c64c4da.jpg" alt="Diamond Cup Wheel">
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="material-icons">shopping_cart</i></button>
+                            <button class="action-btn"><i class="material-icons">favorite_border</i></button>
+                            <button class="action-btn"><i class="material-icons">visibility</i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Diamond Cup Wheel 125mm</h3>
+                            <span class="color-dot" style="background-color: #000000;"></span> <span style="font-size: 0.8rem; color:#aaa;">Anhydrite</span>
+                            <div class="product-meta">
+                                <span class="stock-badge">In Stock</span>
+                            </div>
+                            <span class="price">CHF 58.00</span>
+                        </div>
+                    </div>
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://sfile.chatglm.cn/images-ppt/da84835aef8a.jpg" alt="PCD Disc">
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="material-icons">shopping_cart</i></button>
+                            <button class="action-btn"><i class="material-icons">favorite_border</i></button>
+                            <button class="action-btn"><i class="material-icons">visibility</i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">PCD Removal Disc</h3>
+                            <span class="color-dot" style="background-color: #4CAF50;"></span> <span style="font-size: 0.8rem; color:#aaa;">Removal</span>
+                            <div class="product-meta">
+                                <span class="stock-badge">In Stock</span>
+                            </div>
+                            <span class="price">CHF 110.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials-section">
+            <div class="container">
+                <h2 class="section-title">What Our Customers Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">The quality of Diatop24 diamond tools is exceptional. They last twice as long as the ones I used before, and the 24-hour delivery is a game-changer for my projects.</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">
+                                    <img src="https://sfile.chatglm.cn/images-ppt/2a03b94590f1.jpg" alt="Customer">
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Hans Mueller</h4>
+                                    <p>Construction Manager, Zurich</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">I've been ordering from Diatop24 for three years now. Their color-coded system makes it so easy to find the right tool for any floor type. Highly recommended!</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">
+                                    <img src="https://sfile.chatglm.cn/images-ppt/5902529670fc.jpg" alt="Customer">
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Sarah Schneider</h4>
+                                    <p>Flooring Specialist, Geneva</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">The compatibility with all major machine brands is exactly what I needed. No more searching for specific tools - Diatop24 has everything in one place.</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">
+                                    <img src="https://sfile.chatglm.cn/images-ppt/08dfad246b75.jpg" alt="Customer">
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Thomas Weber</h4>
+                                    <p>Contractor, Basel</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Section -->
+        <section class="trust-section">
+            <div class="container">
+                <h2 class="section-title">Why Choose Diatop24?</h2>
+                <div class="trust-grid">
+                    <div class="trust-column">
+                        <i class="material-icons trust-icon">flash_on</i>
+                        <h3>Lightning Fast</h3>
+                        <p>Order by 3:30 PM – Delivered tomorrow. Swiss logistics at its finest.</p>
+                    </div>
+                    <div class="trust-column">
+                        <i class="material-icons trust-icon">sync_alt</i>
+                        <h3>Universal Fit</h3>
+                        <p>Largest selection of compatible tools in Switzerland for all major brands.</p>
+                    </div>
+                    <div class="trust-column">
+                        <i class="material-icons trust-icon">verified</i>
+                        <h3>Maximum Life</h3>
+                        <p>Industrial-grade diamonds for maximum durability and performance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container cta-content">
+                <div class="swiss-badge">
+                    <img src="https://sfile.chatglm.cn/images-ppt/35995a78b74c.jpg" alt="Swiss Flag">
+                    <span>Swiss Quality Since 2010</span>
+                </div>
+                <h2>Ready to Upgrade Your Tool Collection?</h2>
+                <p>Join thousands of professionals who trust Diatop24 for their diamond tool needs. Experience the difference of Swiss quality today.</p>
+                <a href="#" class="btn btn-primary">Browse All Products</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-grid">
+                    <!-- Quick Links -->
+                    <div class="footer-column footer-links">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Shipping & Returns</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="footer-column footer-links">
+                        <h4>Categories</h4>
+                        <ul>
+                            <li><a href="#">Grinding Tools</a></li>
+                            <li><a href="#">Polishing Pads</a></li>
+                            <li><a href="#">Diamond Blades</a></li>
+                            <li><a href="#">Core Drills</a></li>
+                            <li><a href="#">PCD Tools</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="footer-column">
+                        <h4>Newsletter</h4>
+                        <p style="margin-bottom: 1rem; color: var(--text-muted);">Get technical updates and exclusive offers.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Enter your email">
+                            <button type="submit">Join</button>
+                        </form>
+                        <p class="newsletter-text">By subscribing, you agree to our Privacy Policy and consent to receive updates.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="material-icons">facebook</i></a>
+                            <a href="#" class="social-link"><i class="material-icons">photo_camera</i></a>
+                            <a href="#" class="social-link"><i class="material-icons">play_circle</i></a>
+                            <a href="#" class="social-link"><i class="material-icons">link</i></a>
+                        </div>
+                    </div>
+
+                    <!-- Payment & Trust -->
+                    <div class="footer-column">
+                        <h4>Secure Payment</h4>
+                        <div class="payment-icons">
+                            <div class="payment-icon">TWINT</div>
+                            <div class="payment-icon">VISA</div>
+                            <div class="payment-icon">Master</div>
+                            <div class="payment-icon">PostFinance</div>
+                        </div>
+                        <div style="margin-top: 2rem; display: flex; align-items: center; gap: 15px;">
+                            <div class="swiss-flag"></div>
+                            <div>
+                                <h5 style="color: var(--white); margin-bottom: 5px;">Swiss Company</h5>
+                                <p style="color: var(--text-muted); font-size: 0.8rem;">Est. 2010 • Zurich, Switzerland</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2026 Diatop24. All rights reserved. Swiss Quality Diamond Tools.</p>
+                <div class="copyright-links">
+                    <a href="#">Sitemap</a>
+                    <a href="#">Imprint</a>
+                    <a href="#">Data Protection</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
